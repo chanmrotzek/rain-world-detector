@@ -21,7 +21,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.author.id ==  and "rain world" in message.content.lower():
+    if message.author.id == discord_user and "rain world" in message.content.lower():
         rain_world_counter += 1  # increment the counter
         await message.add_reaction("🚩")  # react with an emoji
 
