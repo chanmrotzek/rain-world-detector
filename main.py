@@ -3,6 +3,7 @@ import os
 
 intents = discord.Intents.default()
 intents.messages = True
+intents.reactions = True
 intents.guilds = True
 
 discord_user = int(os.environ['USER_ID'])
