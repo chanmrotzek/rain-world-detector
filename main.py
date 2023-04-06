@@ -3,8 +3,9 @@ import os
 
 intents = discord.Intents.default()
 intents.messages = True
+intents.guilds = True
 
-discord_user = os.getenv('USER_ID')
+discord_user = int(os.environ['USER_ID'])
 
 client = discord.Client(intents=intents)
 
@@ -29,6 +30,6 @@ async def on_message(message):
     if message.content == "!rainworldcount":
         await message.channel.send(f"Käselord has mentioned Rain World {rain_world_counter} times. I'll continue to monitor their usage.")  # return the counter's value
 
-token = os.getenv('DISCORD_TOKEN')
+token = os.environ['DISCORD_TOKEN']
 
 client.run(token)
