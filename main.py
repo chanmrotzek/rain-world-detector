@@ -4,7 +4,7 @@ import os
 intents = discord.Intents.default()
 intents.messages = True
 
-discord_user = int(os.getenv('USER_ID'))
+discord_user = os.getenv('USER_ID')
 
 client = discord.Client(intents=intents)
 
