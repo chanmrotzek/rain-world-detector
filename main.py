@@ -3,6 +3,7 @@ import os
 
 intents = discord.Intents.all()
 intents.message_content = True
+intents.reactions = True
 
 discord_user = int(os.environ['USER_ID'])
 
@@ -24,6 +25,11 @@ async def on_message(message):
         return
 
     if message.author.id == discord_user and "rain world" in message.content.lower():
+        print('Recognized command:', message.content)
+        rain_world_counter += 1  # increment the counter
+        await message.add_reaction("🚩")  # react with an emoji
+        
+    if message.author.id == discord_user and "rain-world" in message.content.lower():
         print('Recognized command:', message.content)
         rain_world_counter += 1  # increment the counter
         await message.add_reaction("🚩")  # react with an emoji
