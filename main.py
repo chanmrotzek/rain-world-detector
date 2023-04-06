@@ -5,7 +5,6 @@ intents = discord.Intents.default()
 intents.messages = True
 
 discord_user = os.getenv('USER_ID')
-print(discord_user)
 
 client = discord.Client(intents=intents)
 
@@ -14,6 +13,7 @@ rain_world_counter = 0  # initialize the counter
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
+    print(discord_user)
 
 @client.event
 async def on_message(message):
