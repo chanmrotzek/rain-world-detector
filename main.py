@@ -1,10 +1,8 @@
 import discord
 import os
 
-intents = discord.Intents.default()
-intents.messages = True
-intents.reactions = True
-intents.guilds = True
+intents = discord.Intents.all()
+intents.message_content = True
 
 discord_user = os.environ['USER_ID']
 
@@ -19,6 +17,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     print('Received message:', message.content)
+    print('FULL MESSAGE:', message)
     
     if message.author == client.user:
         return
