@@ -16,6 +16,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    global rain_world_counter
     print('Received message:', message.content)
     print('FULL MESSAGE:', message)
     
