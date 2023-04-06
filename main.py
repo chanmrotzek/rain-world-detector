@@ -1,26 +1,31 @@
-# This example requires the 'message_content' privileged intents
-
-import os
 import discord
-from discord.ext import commands
-
 
 intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+intents.messages = True
 
+client = discord.Client(intents=intents)
 
-@bot.event
+rain_world_counter = 0  # initialize the counter
+
+@client.event
 async def on_ready():
-    print(f"Logged in as {bot.user}")
+    print(f'We have logged in as {client.user}')
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+@client.event
+async def on_message(message):
+    global rain_world_counter  # declare the counter as global
 
-@bot.command()
-async def hello(ctx):
-    await ctx.send("Choo choo! 🚅")
+    if message.author == client.user:
+        return
 
+    if message.author.id == 750845810396364900 and "rain world" in message.content.lower():
+        rain_world_counter += 1  # increment the counter
+        await message.add_reaction("🚩")  # react with an emoji
 
-bot.run(os.environ["DISCORD_TOKEN"])
+    if message.content == "!rainworldcount":
+        await message.channel.send(f"Käselord has mentioned Rain World {rain_world_counter} times. I'll continue to monitor their usage.")  # return the counter's value
+
+token = "MTA5MzYxODE5MTM3NDIyOTUzNQ.Gg4yjn.Rb_Rc5SgL4dfEWh-zBjxY5s2bwQmpKbzVZePDQ"
+print(f"Using token: {token}")
+
+client.run(token)
