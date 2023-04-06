@@ -12,6 +12,7 @@ rain_world_counter = 0  # initialize the counter
 
 @client.event
 async def on_ready():
+    print(discord_user)
     print(f'We have logged in as {client.user}')
 
 @client.event
