@@ -18,6 +18,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    print(f'I am a stupid Discord bot! A message! Wow!')
     global rain_world_counter  # declare the counter as global
 
     if message.author == client.user:
