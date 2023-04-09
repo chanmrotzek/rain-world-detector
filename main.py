@@ -10,7 +10,7 @@ discord_user = int(os.environ['USER_ID'])
 
 client = discord.Client(intents=intents)
 
-rain_world_counter = 0  # initialize the counter
+rain_world_counter = 6  # initialize the counter
 
 @client.event
 async def on_ready():
