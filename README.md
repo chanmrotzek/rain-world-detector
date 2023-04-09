@@ -1,27 +1,25 @@
 ---
-title: Discord Python bot
-description: A Discord bot written in Python
+title: Rain World Detector
+description: A Discord bot written in Python. It detects any mentions of "Rain World" in your server by a specific user.
 tags:
   - python
   - discord.py
 ---
 
-# Discord.py Example
+# Rain World Detector
 
-This example starts a Discord bot using [discord.py](https://discordpy.readthedocs.io/en/stable/).
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/PxM3nl)
+There is somebody in a Discord server I mod that loves to talk about Rain World. So I made this to keep tabs on their Rain World mentions.
 
 ## ✨ Features
 
-- Python
-- Discord.py
+- Track mentions of Rain World made by any one user (this can obviously be changed to include everybody).
+- Use a command to track how many mentions have been made.
 
 ## 💁‍♀️ How to use
 
-- Install packages using `pip install -r requirements.txt`
-- Start the bot using `python main.py`
+- Your target mentions Rain World.
+- Use `!rainworldcount` to track their usage.
 
 ## 📝 Notes
 
-This is a basic bot with the prefix `!`, more information can be founded at their [offical documentation](https://discordpy.readthedocs.io/en/stable/api.html).
+If the bot goes offline or is redeployed, the counter will be reset. I have it set for my specific use case, but you can edit that if you'd like.
